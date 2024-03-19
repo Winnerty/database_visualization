@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Populations</title>
+</head>
+<body>
+    <p> Population - <strong>{{name}} {{period}} {{year}}</strong></p>
+
+    <p><strong>Students</strong></p>
+    <table border="2" style="text-align: center">
+        <tr>
+            <td><strong>Email</strong></td>
+            <td><strong>First name</strong></td>
+            <td><strong>Last name</strong>
+             <td><strong>Passed</strong>
+            </td>
+        </tr>
+        {% for line in data3 %}
+            <tr>
+                <td>{{line[0]}}</td> <td>{{line[1]}}</td> <td>{{line[2]}}</td> <td>{{line[3]}} / {{line[4]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p><strong>Courses</strong></p>
+    <table border="2" style="text-align: center">
+        <tr>
+            <td><strong>Code</strong></td>
+            <td><strong>Course</strong></td>
+            <td><strong>Sessions count</strong>
+            </td>
+        </tr>
+        {% for line in data4 %}
+            <tr>
+                <td>{{line[0]}}</td> <td><a href="/grades/{{year}}/{{period}}/{{name}}.html">{{line[1]}}</a></td> <td>{{line[2]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p id="date"></p>
+
+    <script>
+        //SCRIPT FOR DATE & TIME
+        const now = new Date();
+        const datetime = now.toLocaleString();
+        document.getElementById("date").innerHTML = "website last generation: " + datetime;
+    </script>
+</body>
+</html>

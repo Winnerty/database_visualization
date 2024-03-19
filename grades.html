@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+</head>
+<body>
+    <p> Grades - <strong>{{name}} {{period}} {{year}}</strong></p>
+
+    <p><strong>Students final grades per course</strong></p>
+    <table border="2" style="text-align: center">
+        <tr>
+            <td><strong>Email</strong></td>
+            <td><strong>First name</strong></td>
+            <td><strong>Last name</strong></td>
+            <td><strong>Course</strong></td>
+            <td><strong>Grade (/20)</strong></td>
+        </tr>
+        {% for line in data %}
+            <tr>
+                <td>{{line[0]}}</td> <td>{{line[1]}}</td> <td>{{line[2]}}</td> <td>{{line[3]}}</td> <td>{{line[4]}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p id="date"></p>
+
+        <script>
+            //SCRIPT FOR DATE & TIME
+            const now = new Date();
+            const datetime = now.toLocaleString();
+            document.getElementById("date").innerHTML = "website last generation: " + datetime;
+        </script>
+</body>
+</html>

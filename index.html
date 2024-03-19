@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Main</title>
+</head>
+<body>
+    <p style="font-size: 20px">Welcome, <strong>Timofey</strong></p>
+    <p style="font-size: 22px"><strong>Active Populations</strong></p>
+
+    <table border="2">
+        {% for line in data1 %}
+            <tr>
+                <td><a href="/populations/{{line[2]}}/{{line[1]}}/{{line[0]}}.html">
+                {{line[0]}} - {{line[1]}} {{line[2]}} ({{line[3]}})
+                </a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div id="pieChart" style="width:100%; max-width:500px"></div>
+
+    <p style="font-size: 22px"><strong>Overall Attendance</strong></p>
+
+    <table border="2">
+        {% for line in data2 %}
+            <tr>
+                <td>
+                    {{line[0]}} - {{line[1]}} {{line[2]}} ({{line[3]}}%)
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div id="barChart" style="width:100%; max-width:500px"></div>
+
+    <p id="date"></p>
+
+    <script>
+        //SCRIPT FOR DATE & TIME
+        const now = new Date();
+        const datetime = now.toLocaleString();
+        document.getElementById("date").innerHTML = "Website last generation: " + datetime;
+
+        //SCRIPT FOR CHART1
+        const x = {{ data1 | tojson }}, xArray = [], yArray = [];
+        x.forEach((item) => {
+            xArray.push(item[0] + " - " + item[1] + " " + item[2]);
+        });
+        x.forEach((item) => {
+            yArray.push(item[3]);
+        });
+        const data = [{labels:xArray, values:yArray, type:"pie"}];
+        Plotly.newPlot("pieChart", data, {title:"Students per program"});
+
+        //SCRIPT FOR CHART2
+        const x2 = {{ data2 | tojson }}, xArray2 = [], yArray2 = [];
+        x2.forEach((item) => {
+            xArray2.push(item[0] + " - " + item[1] + " " + item[2]);
+        });
+        x2.forEach((item) => {
+            yArray2.push(item[3]);
+        });
+        const dataPrint = [{x:xArray2, y:yArray2, type:"bar"}];
+        Plotly.newPlot("barChart", dataPrint, {title:"Overall attendance chart"});
+    </script>
+</body>
+</html>
