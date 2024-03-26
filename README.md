@@ -25,6 +25,6 @@ I used Plotly for creating the charts, both are created and filled with data ins
 6. Count of passed subjects
 On “Populations” page I count subject as passed if the average grade for the subject is ≥10.
 
-7. Additional
-1. 8th line in main.py is commented, this line was necessary for my computer, you can uncomment it or not. I have left it just in case.
-2. There are some courses, for which students have grades while there are no sessions of this course for these students in Attendance table. For example, CS Fall 2020 have only 3 courses with sessions but 4 final grades.
+7. Additional   
+-8th line in main.py is commented, this line was necessary for my computer, you can uncomment it or not. I have left it just in case.       
+-There are some courses, for which students have grades while there are no sessions of this course for these students in Attendance table. For example, CS Fall 2020 have only 3 courses with sessions but 4 final grades.
