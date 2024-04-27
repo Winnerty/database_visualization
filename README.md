@@ -10,7 +10,7 @@ Open `path_to_h2_jar` file and insert path to your `h2.jar` file.
 2. Open and run `main.py`
 
 3. Beginning  
-Go to [127.0.0.1:5000/index.html](127.0.0.1:5000/index.html) – this is the main page.                
+Go to [127.0.0.1:5000/index.html](https://127.0.0.1:5000/index.html) – this is the main page.                
 You can easily move over pages, open Populations or Grades.
 
 4. Architecture  
@@ -22,7 +22,7 @@ As well I use parameters in URLs, so for each page of a particular academic grou
 I used Plotly for creating the charts, both are created and filled with data inside `<script>` tag in `index.html` file.
 
 6. Count of passed subjects
-On “Populations” page I count subject as passed if the average grade for the subject is ≥10.
+On `Populations` page I count subject as passed if the average grade for the subject is ≥10.
 
 7. Additional   
--8th line in main.py is commented, this line was necessary for my computer, you can uncomment it or not. I have left it just in case.       
+-8th line in `main.py` is commented, this line was necessary for my computer, you can uncomment it or not. I have left it just in case.       
