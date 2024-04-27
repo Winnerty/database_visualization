@@ -1,7 +1,6 @@
 # Database Visualization
 ## How to use:
 0) Set up Flask, jaydebeapi  
-(In terminal):  
 `pip install Flask`         
 `pip install JayDeBeApi==1.2.3`
 
